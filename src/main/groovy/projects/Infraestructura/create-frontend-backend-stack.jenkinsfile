@@ -1,0 +1,33 @@
+pipeline {
+
+    agent any
+
+    environment {
+		FIRSTNAME='Angel'
+    }
+
+    options {
+        timestamps()
+        timeout(time: 20, unit: 'MINUTES')
+        disableConcurrentBuilds()
+    }
+    
+    parameters {
+        string(name: 'ProjectName', description: 'Nombre del proyecto, sin indicar el ambiente. Ej: portabilidad-financiera, calculadora')
+    }
+
+    stages{
+
+        stage('test'){
+            steps {
+                echo "Descargando el repo"
+                script {
+                    sh '''
+                        echo $FIRSTNAME
+                        echo "hola $FIRSTNAME, se está descargando el repo para tu proyecto $ProjectName"
+                    '''
+                }
+            }
+        }
+    }
+}
