@@ -24,8 +24,9 @@ def job = pipelineJob('Infraestructura/create-frontend-backend-stack') {
 def pipelineFile = readFileFromWorkspace('src/main/groovy/projects/Infraestructura/create-frontend-backend-stack.jenkinsfile')
 println "${pipelineFile}"
 
-println "${pipelineFile.parameters}"
-
+def file = new File(pipelineFile)
+def pomFile = new XmlSlurper().parse(file)
+println pomFile
 
 // def parameters = build?.actions.find{ it instanceof ParametersAction }?.parameters
 // parameters.each {
