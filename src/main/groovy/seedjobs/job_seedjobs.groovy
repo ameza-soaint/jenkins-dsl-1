@@ -7,6 +7,8 @@ println currentDir
 
 println new File(getClass().protectionDomain.codeSource.location.path).parent
 
+println getClass().protectionDomain.codeSource.location.path
+
 println new File(System.getProperty("user.dir")).name
 
 println new File(System.getProperty("user.dir")).parent
