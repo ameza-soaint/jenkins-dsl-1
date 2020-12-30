@@ -14,26 +14,3 @@ def job = pipelineJob('Infraestructura/create-frontend-backend-stack') {
             }
 }
 
-//helpers.Build_Job_Helper.general_config(job, jobDescription)
-
-//TO-DO
-// Obtener los parametros desde el jenkinsfile y configurarlos en el job.
-// Esto debido a que los parametros en el jenkinsfile se configuran
-// cuando se ejecuta el job por lo tanto se pierden cada vez que se ejecuta un seed.
-// get parameters
-def pipelineFile = readFileFromWorkspace('src/main/groovy/projects/Infraestructura/create-frontend-backend-stack.jenkinsfile')
-println "${pipelineFile}"
-
-def matches = (pipelineFile =~ /parameters\w{4}/)
-
-println matches.getClass()
-
-def jobOptionsBuilder = load pwd() + 'src/main/groovy/projects/Infraestructura/create-frontend-backend-stack.jenkinsfile'
-println jobOptionsBuilder.getClass()
-
-// def parameters = build?.actions.find{ it instanceof ParametersAction }?.parameters
-// parameters.each {
-//    println "parameter ${it.name}:"
-//    println it.dump()
-// }
-
