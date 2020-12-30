@@ -24,7 +24,9 @@ def job = pipelineJob('Infraestructura/create-frontend-backend-stack') {
 def pipelineFile = readFileFromWorkspace('src/main/groovy/projects/Infraestructura/create-frontend-backend-stack.jenkinsfile')
 println "${pipelineFile}"
 
-def file = new File(pipelineFile)
+def matches = (pipelineFile =~ /parameters\w{4}/)
+
+def file = new File('src/main/groovy/projects/Infraestructura/create-frontend-backend-stack.jenkinsfile')
 def pomFile = new XmlSlurper().parse(file)
 println pomFile
 
