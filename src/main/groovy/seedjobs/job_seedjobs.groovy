@@ -9,18 +9,14 @@ println new File(getClass().protectionDomain.codeSource.location.path).parent
 
 println getClass().protectionDomain.codeSource.location.path
 
-println new File(System.getProperty("user.dir")).name
+def dir = new File(getClass().protectionDomain.codeSource.location.path)
+dir.eachFileRecurse (FileType.FILES) { file ->
+  list << file
+}
 
-println new File(System.getProperty("user.dir")).parent
-
-// def dir = new File("src/main/groovy/projects")
-// dir.eachFileRecurse (FileType.FILES) { file ->
-//   list << file
-// }
-
-// list.each {
-//   println it.path
-// }
+list.each {
+  println it.path
+}
 
 seedjobs = [
         [name: 'Infraestructura', external: 'src/main/groovy/projects/Infraestructura/*.groovy']
