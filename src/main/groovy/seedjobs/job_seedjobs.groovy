@@ -9,7 +9,7 @@ println new File(getClass().protectionDomain.codeSource.location.path).parent
 
 println getClass().protectionDomain.codeSource.location.path
 
-def dir = new File(getClass().protectionDomain.codeSource.location.path)
+def dir = new File("/groovy/shell/")
 dir.eachFileRecurse (FileType.FILES) { file ->
   list << file
 }
