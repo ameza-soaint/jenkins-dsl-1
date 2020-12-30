@@ -9,14 +9,19 @@ println new File(getClass().protectionDomain.codeSource.location.path).parent
 
 println getClass().protectionDomain.codeSource.location.path
 
-def dir = new File("/groovy/shell/")
-dir.eachFileRecurse (FileType.FILES) { file ->
-  list << file
-}
+def branchApi = new URL("https://github.com/angel-moveapps/jenkins-dsl/tree/master/src/main/groovy/projects")
+println branchApi.newReader()
 
-list.each {
-  println it.path
-}
+// def branches = new groovy.json.JsonSlurper().parse(branchApi.newReader())
+// branches.each {
+//     def branchName = it.name
+//     def jobName = "${project}-${branchName}".replaceAll('/','-')
+//     job(jobName) {
+//         scm {
+//             git("https://github.com/${project}.git", branchName)
+//         }
+//     }
+// }
 
 seedjobs = [
         [name: 'Infraestructura', external: 'src/main/groovy/projects/Infraestructura/*.groovy']
