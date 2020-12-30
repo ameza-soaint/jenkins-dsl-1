@@ -26,9 +26,10 @@ println "${pipelineFile}"
 
 def matches = (pipelineFile =~ /parameters\w{4}/)
 
-def file = new File('src/main/groovy/projects/Infraestructura/create-frontend-backend-stack.jenkinsfile')
-def pomFile = new XmlSlurper().parse(file)
-println pomFile
+println matches.getClass()
+
+def jobOptionsBuilder = load pwd() + 'src/main/groovy/projects/Infraestructura/create-frontend-backend-stack.jenkinsfile'
+println jobOptionsBuilder.getClass()
 
 // def parameters = build?.actions.find{ it instanceof ParametersAction }?.parameters
 // parameters.each {
