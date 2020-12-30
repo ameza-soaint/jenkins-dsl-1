@@ -2,14 +2,16 @@ import groovy.io.FileType
 
 def list = []
 
-def dir = new File("src/main/groovy/projects")
-dir.eachFileRecurse (FileType.FILES) { file ->
-  list << file
-}
+def currentDir = new File(".").getAbsolutePath()
+println currentDir
+// def dir = new File("src/main/groovy/projects")
+// dir.eachFileRecurse (FileType.FILES) { file ->
+//   list << file
+// }
 
-list.each {
-  println it.path
-}
+// list.each {
+//   println it.path
+// }
 
 seedjobs = [
         [name: 'Infraestructura', external: 'src/main/groovy/projects/Infraestructura/*.groovy']
