@@ -5,8 +5,7 @@ def list = []
 def currentDir = new File(".").getAbsolutePath()
 println currentDir
 
-def currentDir2 = new File(".").getAbsolutePath().getParent()
-println currentDir2
+println new File(getClass().protectionDomain.codeSource.location.path).parent
 
 println new File(System.getProperty("user.dir")).name
 
