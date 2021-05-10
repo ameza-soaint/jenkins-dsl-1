@@ -8,6 +8,7 @@ import hudson.security.*
 
 def instance = Jenkins.getInstance()
 println instance.inspect()
+println instance.dump()
 
 def jobDescription = 'asdf'
 
