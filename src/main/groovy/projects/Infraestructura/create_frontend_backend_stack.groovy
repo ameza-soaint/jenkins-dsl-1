@@ -9,7 +9,7 @@ import hudson.security.*
 def instance = Jenkins.getInstance()
 println instance.inspect()
 
-def realm = jenkins.getSecurityRealm()
+def realm = instance.getSecurityRealm()
 println realm.dump()
 
 def jobDescription = 'asdf'
