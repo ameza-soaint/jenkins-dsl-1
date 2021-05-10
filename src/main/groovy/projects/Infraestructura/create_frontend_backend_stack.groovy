@@ -3,6 +3,12 @@
 //   "un RDS para el backend y un Bucket S3 para el stack frontend. Ambos quedan configurados en CloudFront para recibir peticiones por Internet. " +
 //   "Mas info en https://confluence.coopeuch.cl/x/izKSB"
 
+import jenkins.model.*
+import hudson.security.*
+
+def instance = Jenkins.getInstance()
+println instance.inspect()
+
 def jobDescription = 'asdf'
 
 def job = pipelineJob('Infraestructura/create-frontend-backend-stack') {
@@ -13,4 +19,6 @@ def job = pipelineJob('Infraestructura/create-frontend-backend-stack') {
                 }
             }
 }
+
+
 
