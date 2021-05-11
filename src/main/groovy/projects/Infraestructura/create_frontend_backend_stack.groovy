@@ -14,8 +14,13 @@ def job = pipelineJob('Infraestructura/create-frontend-backend-stack') {
             }
 }
 
+println "isSecurityRealmAzureAD()"
+
+helpers.Build_Job_Helper.isSecurityRealmAzureAD()
+
 println "inside job groovy"
 
 helpers.Build_Job_Helper.general_config(job)
+
 println "fin"
 
