@@ -124,7 +124,7 @@ class Build_Job_Helper {
         }
     }
 
-    static bool  isSecurityRealmAzureAD()
+    static boolean isSecurityRealmAzureAD()
     {
         def jenkins = Jenkins.getInstance()
         def realm = jenkins.getSecurityRealm()
