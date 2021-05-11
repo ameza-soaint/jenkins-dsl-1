@@ -12,6 +12,8 @@ println instance.inspect()
 def realm = instance.getSecurityRealm()
 println realm.dump()
 
+println realm.getClass() 
+
 def jobDescription = 'asdf'
 
 def job = pipelineJob('Infraestructura/create-frontend-backend-stack') {
