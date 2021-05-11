@@ -12,9 +12,9 @@ println instance.inspect()
 def realm = instance.getSecurityRealm()
 println realm.dump()
 
-println (obj.getClass() == hudson.security.HudsonPrivateSecurityRealm)
+println (realm.getClass() == hudson.security.HudsonPrivateSecurityRealm)
 
-if (obj.getClass() == hudson.security.HudsonPrivateSecurityRealm) {
+if (realm.getClass() == hudson.security.HudsonPrivateSecurityRealm) {
     println "Auth Security Realm Selected: hudson.security.HudsonPrivateSecurityRealm"
 }
 else {
