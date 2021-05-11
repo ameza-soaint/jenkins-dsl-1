@@ -42,6 +42,7 @@ class Build_Job_Helper {
 
     static boolean isSecurityRealmAzureAD()
     {
+        println "inside isSecurityRealmAzureAD"
         def jenkins = Jenkins.getInstance()
         def realm = jenkins.getSecurityRealm()
         println realm.getClass().toString()
