@@ -128,7 +128,10 @@ class Build_Job_Helper {
     {
         def jenkins = Jenkins.getInstance()
         def realm = jenkins.getSecurityRealm()
-        return realm.getClass() == com.microsoft.jenkins.azuread.AzureSecurityRealm
+        println realm.getClass().toString()
+        println realm.getClass().getName()
+        println realm.getClass().getSimpleName()
+        return realm.getClass().getName() == "com.microsoft.jenkins.azuread.AzureSecurityRealm"
     }
 // Aqui se agregan los nuevos parametros a utilizar en los jobs
 
