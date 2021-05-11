@@ -1,6 +1,6 @@
+package helpers
 import jenkins.model.*
 import hudson.security.*
-package helpers
 
 class Build_Job_Helper {
 
