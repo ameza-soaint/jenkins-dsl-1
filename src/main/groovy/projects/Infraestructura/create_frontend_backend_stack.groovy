@@ -12,7 +12,14 @@ println instance.inspect()
 def realm = instance.getSecurityRealm()
 println realm.dump()
 
-println realm.getClass() 
+println (obj.getClass() == hudson.security.HudsonPrivateSecurityRealm)
+
+if (obj.getClass() == hudson.security.HudsonPrivateSecurityRealm) {
+    println "Auth Security Realm Selected: hudson.security.HudsonPrivateSecurityRealm"
+}
+else {
+    println "Auth Security Realm Selected: com.microsoft.jenkins.azuread.AzureSecurityRealm"
+}
 
 def jobDescription = 'asdf'
 
