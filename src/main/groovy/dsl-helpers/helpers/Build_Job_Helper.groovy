@@ -9,7 +9,7 @@ class Build_Job_Helper {
         println "general_config(job)"
         println isSecurityRealmAzureAD()
 
-        if (isSecurityRealmAzureAD()){
+        if (!isSecurityRealmAzureAD()){
             
             job.with {
                 properties {
