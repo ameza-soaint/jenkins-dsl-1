@@ -23,6 +23,8 @@ def realm = jenkins.getSecurityRealm()
 println realm.getClass().toString()
 println realm.getClass().getName()
 println realm.getClass().getSimpleName()
+println realm.getClass().getName() == "hudson.security.HudsonPrivateSecurityRealm"
+println realm.getClass().getSimpleName() == "HudsonPrivateSecurityRealm"
 
 println "inside job groovy"
 
