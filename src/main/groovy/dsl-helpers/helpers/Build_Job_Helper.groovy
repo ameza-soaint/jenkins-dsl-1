@@ -6,6 +6,9 @@ class Build_Job_Helper {
 
     static void general_config(job) {
 
+        println "general_config(job)"
+        println isSecurityRealmAzureAD()
+
         if (isSecurityRealmAzureAD()){
             
             job.with {
@@ -35,8 +38,16 @@ class Build_Job_Helper {
 
         }
 
-        
+    }
 
+    static boolean isSecurityRealmAzureAD()
+    {
+        def jenkins = Jenkins.getInstance()
+        def realm = jenkins.getSecurityRealm()
+        println realm.getClass().toString()
+        println realm.getClass().getName()
+        println realm.getClass().getSimpleName()
+        return realm.getClass().getName() == "com.microsoft.jenkins.azuread.AzureSecurityRealm"
     }
 
     static void general_config(job, jobDescription) {
@@ -124,15 +135,7 @@ class Build_Job_Helper {
         }
     }
 
-    static boolean isSecurityRealmAzureAD()
-    {
-        def jenkins = Jenkins.getInstance()
-        def realm = jenkins.getSecurityRealm()
-        println realm.getClass().toString()
-        println realm.getClass().getName()
-        println realm.getClass().getSimpleName()
-        return realm.getClass().getName() == "com.microsoft.jenkins.azuread.AzureSecurityRealm"
-    }
+
 // Aqui se agregan los nuevos parametros a utilizar en los jobs
 
 
