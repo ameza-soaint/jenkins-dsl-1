@@ -1,17 +1,41 @@
+import jenkins.model.*
+import hudson.security.*
 package helpers
 
 class Build_Job_Helper {
 
     static void general_config(job) {
-        job.with {
-            authorization{
-                permission('hudson.model.Item.Workspace:authenticated')//configuración de seguridad para el proyecto
+
+        if (isSecurityRealmAzureAD()){
+            
+            job.with {
+                properties {
+                    azureAdAuthorizationMatrix {
+                        permissions(["hudson.model.Item.Discover:1e122ef9-7211-4c04-8654-697cda5b2f54",
+                                    "hudson.model.Item.Read:1e122ef9-7211-4c04-8654-697cda5b2f54",
+                                    "hudson.model.Item.Build:1e122ef9-7211-4c04-8654-697cda5b2f54",
+                                    "hudson.model.Item.Cancel:1e122ef9-7211-4c04-8654-697cda5b2f54"])
+                    }
+                }
+                description(jobDescription)
             }
-            logRotator {
-                numToKeep(10)
-                artifactNumToKeep(10)
-            }
+
         }
+        else {
+
+            job.with {
+                authorization{
+                    permission('hudson.model.Item.Workspace:authenticated')//configuración de seguridad para el proyecto
+                }
+                logRotator {
+                    numToKeep(10)
+                    artifactNumToKeep(10)
+                }
+            }
+
+        }
+
+        
 
     }
 
@@ -100,7 +124,12 @@ class Build_Job_Helper {
         }
     }
 
-
+    static bool  isSecurityRealmAzureAD()
+    {
+        def jenkins = Jenkins.getInstance()
+        def realm = jenkins.getSecurityRealm()
+        return realm.getClass() == com.microsoft.jenkins.azuread.AzureSecurityRealm
+    }
 // Aqui se agregan los nuevos parametros a utilizar en los jobs
 
 
