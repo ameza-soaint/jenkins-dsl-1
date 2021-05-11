@@ -14,6 +14,8 @@ def job = pipelineJob('Infraestructura/create-frontend-backend-stack') {
             }
 }
 
-helpers.Build_Job_Helper.general_config(job)
+println "inside job groovy"
 
+helpers.Build_Job_Helper.general_config(job)
+println "fin"
 
