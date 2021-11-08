@@ -22,6 +22,8 @@ println getClass().protectionDomain.codeSource.location.path
 
 seedjobs = [
         [name: 'Infraestructura', external: 'src/main/groovy/projects/Infraestructura/*.groovy']
+        [name: 'Prod', external: 'src/main/groovy/projects/Prod/*.groovy']
+        [name: 'QA', external: 'src/main/groovy/projects/QA/*.groovy']
 ]
 
 seedjobs.each { seedjob ->
