@@ -7,17 +7,14 @@ def job = pipelineJob('QA/test') {
             }
 	def userIDs = ['developer']        
         
-            for (String oneUser : userIDs) {
-                authorization {
-                    permissions("${oneUser}", [
-                        'hudson.model.Item.Build',
-                        'hudson.model.Item.Discover',
-                        'hudson.model.Item.Cancel',
-                        'hudson.model.Item.Read'
-                    ])
-                }
-            }
-
-
+    for (String oneUser : userIDs) {
+        authorization {
+            permissions("${oneUser}", [
+                'hudson.model.Item.Build',
+                'hudson.model.Item.Discover',
+                'hudson.model.Item.Cancel',
+                'hudson.model.Item.Read'
+            ])
+        }
+    }
 }
-
