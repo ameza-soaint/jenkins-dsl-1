@@ -5,6 +5,9 @@ def job = pipelineJob('Prod/test') {
                     sandbox()
                 }
             }
+	authorization {
+        blocksInheritance()
+    }
 }
 
 

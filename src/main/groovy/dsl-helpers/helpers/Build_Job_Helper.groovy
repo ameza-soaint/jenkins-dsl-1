@@ -136,6 +136,9 @@ class Build_Job_Helper {
         }
     }
 
+	static def dev_users() {
+        return ['developer'];
+    }
 
 // Aqui se agregan los nuevos parametros a utilizar en los jobs
 
