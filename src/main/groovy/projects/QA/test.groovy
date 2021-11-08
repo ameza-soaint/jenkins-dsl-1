@@ -21,5 +21,3 @@ def job = pipelineJob('QA/test') {
 
 }
 
-
-def userIDs = helpers.Build_Job_Helper.dev_users()
