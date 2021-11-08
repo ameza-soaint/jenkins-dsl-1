@@ -1,29 +1,7 @@
-import groovy.io.FileType
-
-def list = []
-
-def currentDir = new File(".").getAbsolutePath()
-println currentDir
-
-println new File(getClass().protectionDomain.codeSource.location.path).parent
-
-println getClass().protectionDomain.codeSource.location.path
-
-// def branches = new groovy.json.JsonSlurper().parse(branchApi.newReader())
-// branches.each {
-//     def branchName = it.name
-//     def jobName = "${project}-${branchName}".replaceAll('/','-')
-//     job(jobName) {
-//         scm {
-//             git("https://github.com/${project}.git", branchName)
-//         }
-//     }
-// }
-
 seedjobs = [
-        [name: 'Infraestructura', external: 'src/main/groovy/projects/Infraestructura/*.groovy']
-        [name: 'Prod', external: 'src/main/groovy/projects/Prod/*.groovy']
-        [name: 'QA', external: 'src/main/groovy/projects/QA/*.groovy']
+        [name: 'Infraestructura', external: 'src/main/groovy/projects/Infraestructura/*.groovy'],
+        [name: 'QA', external: 'src/main/groovy/projects/QA/*.groovy'],
+        [name: 'Prod', external: 'src/main/groovy/projects/Prod/*.groovy']  
 ]
 
 seedjobs.each { seedjob ->
